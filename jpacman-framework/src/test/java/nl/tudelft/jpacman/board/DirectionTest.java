@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
  *
  * @author Arie van Deursen
  */
+
 class DirectionTest {
 
     /**
@@ -17,21 +18,26 @@ class DirectionTest {
      */
     @Test
     void testNorth() {
-        // TODO
+        assertThat(Direction.NORTH.getDeltaX()).isEqualTo(0);
+        assertThat(Direction.NORTH.getDeltaY()).isEqualTo(-1);
+
     }
 
     @Test
     void testSouth() {
-        // TODO
+        assertThat(Direction.SOUTH.getDeltaX()).isEqualTo(0);
+        assertThat(Direction.SOUTH.getDeltaY()).isEqualTo(1);
     }
 
     @Test
     void testEast() {
-        // TODO
+        assertThat(Direction.EAST.getDeltaX()).isEqualTo(1);
+        assertThat(Direction.EAST.getDeltaY()).isEqualTo(0);
     }
 
     @Test
     void testWest() {
-        // TODO
+        assertThat(Direction.WEST.getDeltaX()).isEqualTo(-1);
+        assertThat(Direction.WEST.getDeltaY()).isEqualTo(0);
     }
 }

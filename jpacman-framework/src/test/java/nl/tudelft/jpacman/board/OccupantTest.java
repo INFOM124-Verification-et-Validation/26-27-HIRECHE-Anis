@@ -3,7 +3,7 @@ package nl.tudelft.jpacman.board;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Test suite to confirm that {@link Unit}s correctly (de)occupy squares.
  *
@@ -30,7 +30,7 @@ class OccupantTest {
      */
     @Test
     void noStartSquare() {
-        // TODO
+        assertThat(unit.hasSquare()).isFalse();
     }
 
     /**
@@ -39,7 +39,13 @@ class OccupantTest {
      */
     @Test
     void testOccupy() {
-        // TODO
+        Square square = new BasicSquare();
+
+        unit.occupy(square);
+
+        assertThat(unit.hasSquare()).isTrue();
+        assertThat(unit.getSquare()).isSameAs(square);
+        assertThat(square.getOccupants()).contains(unit);
     }
 
     /**
@@ -48,6 +54,15 @@ class OccupantTest {
      */
     @Test
     void testReoccupy() {
-        // TODO
+        Square first = new BasicSquare();
+        Square second = new BasicSquare();
+
+        unit.occupy(first);
+        unit.occupy(second);
+
+        assertThat(unit.getSquare()).isSameAs(second);
+        assertThat(second.getOccupants()).contains(unit);
+        assertThat(first.getOccupants()).doesNotContain(unit);
+
     }
 }

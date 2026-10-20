@@ -3,6 +3,8 @@ package nl.tudelft.jpacman.level;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * Test suite to confirm that {@link Score} correctly stores and
  * accumulates points.
@@ -12,6 +14,7 @@ class ScoreTest {
     /**
      * The score under test.
      */
+
     private Score score;
 
     /**
@@ -28,7 +31,9 @@ class ScoreTest {
      */
     @Test
     void testInitialPoints() {
-        // TODO
+        assertEquals(0,score.getPoints());
+
+
     }
 
     /**
@@ -36,7 +41,8 @@ class ScoreTest {
      */
     @Test
     void testAddPoints() {
-        // TODO
+        score.addPoints(20);
+        assertEquals(20,score.getPoints());
     }
 
     /**
@@ -44,14 +50,17 @@ class ScoreTest {
      */
     @Test
     void testAddPointsTwice() {
-        // TODO
-    }
 
+        score.addPoints(20);
+        score.addPoints(20);
+        assertEquals(40,score.getPoints());
+    }
     /**
      * Asserts that adding negative points decreases the total by that amount.
      */
     @Test
     void testAddNegativePoints() {
-        // TODO
+        score.addPoints(-20);
+        assertEquals(-20,score.getPoints());
     }
 }
