@@ -36,3 +36,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         # TODO: Replace <PROJECT_KEY> with your SonarCloud project key
         run: xvfb-run mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=INFOM124-Verification-et-Validation_26-27-HIRECHE-Anis
+
+
+
